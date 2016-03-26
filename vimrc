@@ -14,15 +14,17 @@ Plugin 'gmarik/Vundle.vim'
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'davidhalter/jedi-vim'
+" Plugin 'davidhalter/jedi-vim'
 Plugin 'vim-scripts/indentpython.vim'
-Plugin 'klen/python-mode'
+" Plugin 'klen/python-mode'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'powerline/powerline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeFocus<CR>
 
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
@@ -68,5 +70,12 @@ endfunction
 
 
 let g:pymode_folding = 0
+let g:pymode_rope_completion = 1
+
+
+
+let g:pymode_rope_completion = 0
+let g:pymode_rope_complete_on_dot = 0
+
 
 let mapleader=","
