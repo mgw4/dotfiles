@@ -20,6 +20,7 @@ Plugin 'klen/python-mode'
 " Plugin 'Valloric/YouCompleteMe'
 Plugin 'Lokaltog/powerline'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'heavenshell/vim-pydocstring'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
