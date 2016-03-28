@@ -19,7 +19,7 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'klen/python-mode'
 " Plugin 'Valloric/YouCompleteMe'
 Plugin 'Lokaltog/powerline'
-
+Plugin 'altercation/vim-colors-solarized'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -30,15 +30,9 @@ augroup vimrc_autocmds
 	autocmd!
 	" highlight characters past column 120
 	autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
-	autocmd FileType python match Excess /\%120v.*/
+	autocmd FileType python match Excess /\%80v.*/
 	autocmd FileType python set nowrap
-        augroup END
-
-
-
-
-
-
+    augroup END
 
 
 " Python-mode
@@ -88,8 +82,14 @@ let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
 " Don't autofold code
-let g:pymode_folding = 0
+let g:pymode_folding = 1
 
+
+" set line length highlighting to
+" 120 
+
+let g:pymode_options_max_line_length = 120
+let g:pymode_options_colorcolumn = 0
 
 " Powerline settings
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
