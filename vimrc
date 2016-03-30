@@ -19,13 +19,18 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'klen/python-mode'
 " Plugin 'Valloric/YouCompleteMe'
 Plugin 'Lokaltog/powerline'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'heavenshell/vim-pydocstring'
-
+Plugin 'ctrlp.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+
+au FocusLost * :set number
+au FocusGained * :set relativenumber
+
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
 
 augroup vimrc_autocmds
 	autocmd!
@@ -83,7 +88,7 @@ let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
 " Don't autofold code
-let g:pymode_folding = 1
+let g:pymode_folding = 0
 
 
 " set line length highlighting to
@@ -154,7 +159,9 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+
 " more subtle popup colors
 if has ('gui_running')
     highlight Pmenu guibg=#cccccc gui=bold
 endif
+

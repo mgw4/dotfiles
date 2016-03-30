@@ -4,3 +4,5 @@ ln -s $HOME/dotfiles/vimrc $HOME/.vimrc
 unlink $HOME/.vim
 ln -s $HOME/dotfiles/vim $HOME/.vim
 
+unlink $HOME/.tmux.conf
+ln -s $HOME/dotfiles/tmux.conf $HOME/.tmux.conf
