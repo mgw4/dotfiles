@@ -21,10 +21,12 @@ Plugin 'klen/python-mode'
 Plugin 'Lokaltog/powerline'
 Plugin 'heavenshell/vim-pydocstring'
 Plugin 'ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+set clipboard=unnamed
 
 au FocusLost * :set number
 au FocusGained * :set relativenumber
@@ -32,13 +34,23 @@ au FocusGained * :set relativenumber
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 
+inoremap {      {}<Left>
+inoremap {<CR>  {<CR>}<Esc>O
+inoremap {{     {
+inoremap {}     {}
+
+inoremap        (  ()<Left>
+inoremap <expr> )  strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
+inoremap <expr> ' strpart(getline('.'), col('.')-1, 1) == "\'" ? "\<Right>" : "\'\'\<Left>"
+
+
 augroup vimrc_autocmds
 	autocmd!
 	" highlight characters past column 120
 	autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
 	autocmd FileType python match Excess /\%80v.*/
 	autocmd FileType python set nowrap
-    augroup END
+augroup END
 
 
 " Python-mode
@@ -165,3 +177,13 @@ if has ('gui_running')
     highlight Pmenu guibg=#cccccc gui=bold
 endif
 
+" remove the arrow keys in vim 
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
