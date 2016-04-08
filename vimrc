@@ -1,40 +1,50 @@
 set nocompatible              " required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+execute pathogen#infect()
+execute pathogen#helptags()
 
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+filetype plugin indent on
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+set autoindent
 
-" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'klen/python-mode'
-" Plugin 'Valloric/YouCompleteMe'
-Plugin 'Lokaltog/powerline'
-Plugin 'heavenshell/vim-pydocstring'
-Plugin 'ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+" 
+" set the leader key to ','
+"
+let mapleader=","
 
-set clipboard=unnamed
+"
+"required for ctrlspace
+"
+set nocompatible
+set hidden
 
+" 
+" set vim to use the system clipboard
+"
+set clipboard=unnamedplus
+
+"
+" set vim color count 
+"
+if $COLORTERM == 'gnome-terminal'
+    set t_Co=265
+endif
+
+
+"
+" set relative line numbers in various conditions
+"
+set number
 au FocusLost * :set number
 au FocusGained * :set relativenumber
 
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 
-inoremap {      {}<Left>
+"
+" add fancy bracket stuff
+"
 inoremap {<CR>  {<CR>}<Esc>O
 inoremap {{     {
 inoremap {}     {}
@@ -43,17 +53,18 @@ inoremap        (  ()<Left>
 inoremap <expr> )  strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
 inoremap <expr> ' strpart(getline('.'), col('.')-1, 1) == "\'" ? "\<Right>" : "\'\'\<Left>"
 
+"
+" set nice line at 80 , 120 and 121 chars
+"
+set colorcolumn=80,120,121
+highlight ColorColumn ctermbg=0 guibg=lightgrey
 
-augroup vimrc_autocmds
-	autocmd!
-	" highlight characters past column 120
-	autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
-	autocmd FileType python match Excess /\%80v.*/
-	autocmd FileType python set nowrap
-augroup END
+" 
+" Jedi setting to set the doc string window at the bottom
+"
+set splitbelow
 
-
-" Python-mode
+" Python-mode settings
 " " Activate rope
 " " Keys:
 " " K             Show python docs
@@ -99,91 +110,98 @@ let g:pymode_syntax_all = 1
 let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
+" 
 " Don't autofold code
-let g:pymode_folding = 0
+"
+let g:pymode_folding = 1
 
 
 " set line length highlighting to
 " 120 
 
-let g:pymode_options_max_line_length = 120
-let g:pymode_options_colorcolumn = 0
+" let g:pymode_options_max_line_length = 120
+" let g:pymode_options_colorcolumn = 0
 
-" Powerline settings
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
-set laststatus=2
-let g:Powerline_symbols = 'fancy'
-set encoding=utf-8
+"
+" have autopep8 run on selected code when gq is pressed
+"
+au FileType python setlocal formatprg=autopep8\ -
 
-
-map <F2> :NERDTreeFocus<CR>
-
-let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
-
-set nu
-
-
-let s:pairs={
-            \'<': '>',
-            \'{': '}',
-            \'[': ']',
-            \'(': ')',
-            \'«': '»',
-            \'„': '“',
-            \'“': '”',
-            \'‘': '’',
-        \}
-call map(copy(s:pairs), 'extend(s:pairs, {v:val : v:key}, "keep")')
-function! InsertPair(left, ...)
-    let rlist=reverse(map(split(a:left, '\zs'), 'get(s:pairs, v:val, v:val)'))
-    let opts=get(a:000, 0, {})
-    let start   = get(opts, 'start',   '')
-    let lmiddle = get(opts, 'lmiddle', '')
-    let rmiddle = get(opts, 'rmiddle', '')
-    let end     = get(opts, 'end',     '')
-    let prefix  = get(opts, 'prefix',  '')
-    let start.=prefix
-    let rmiddle.=prefix
-    let left=start.a:left.lmiddle
-    let right=rmiddle.join(rlist, '').end
-    let moves=repeat("\<Left>", len(split(right, '\zs')))
-    return left.right.moves
-endfunction
-noremap! <expr> ,f   InsertPair('{')
-noremap! <expr> ,h   InsertPair('[')
-noremap! <expr> ,s   InsertPair('(')
-noremap! <expr> ,u   InsertPair('<')
+" let s:pairs={
+"             \'<': '>',
+"             \'{': '}',
+"             \'[': ']',
+"             \'(': ')',
+"             \'«': '»',
+"             \'„': '“',
+"             \'“': '”',
+"             \'‘': '’',
+"         \}
+" call map(copy(s:pairs), 'extend(s:pairs, {v:val : v:key}, "keep")')
+" function! InsertPair(left, ...)
+"     let rlist=reverse(map(split(a:left, '\zs'), 'get(s:pairs, v:val, v:val)'))
+"     let opts=get(a:000, 0, {})
+"     let start   = get(opts, 'start',   '')
+"     let lmiddle = get(opts, 'lmiddle', '')
+"     let rmiddle = get(opts, 'rmiddle', '')
+"     let end     = get(opts, 'end',     '')
+"     let prefix  = get(opts, 'prefix',  '')
+"     let start.=prefix
+"     let rmiddle.=prefix
+"     let left=start.a:left.lmiddle
+"     let right=rmiddle.join(rlist, '').end
+"     let moves=repeat("\<Left>", len(split(right, '\zs')))
+"     return left.right.moves
+" endfunction
+" noremap! <expr> ,f   InsertPair('{')
+" noremap! <expr> ,h   InsertPair('[')
+" noremap! <expr> ,s   InsertPair('(')
+" noremap! <expr> ,u   InsertPair('<')
+" 
 
 
+"
+" Not sure what this does
+"
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 
-let mapleader=","
-
-
-
+"
 " Use <leader>l to toggle display of whitespace
+"
 nmap <leader>l :set list!<CR>
 
+"
 " I'm prefer spaces to tabs
+"
 set tabstop=4
 set shiftwidth=4
 set expandtab
 
 
+"
 " more subtle popup colors
+"
 if has ('gui_running')
     highlight Pmenu guibg=#cccccc gui=bold
 endif
 
+"
 " remove the arrow keys in vim 
+"
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
-inoremap <Up> <NOP>
-inoremap <Down> <NOP>
+"inoremap <Up> <NOP>
+"inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
+
+"
+" set colorscheme
+"
+
+colorscheme ron
