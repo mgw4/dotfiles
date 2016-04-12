@@ -1,8 +1,16 @@
 #!/bin/bash
-unlink $HOME/.vimrc
-ln -s $HOME/dotfiles/vimrc $HOME/.vimrc
-unlink $HOME/.vim
-ln -s $HOME/dotfiles/vim $HOME/.vim
 
-unlink $HOME/.tmux.conf
-ln -s $HOME/dotfiles/tmux.conf $HOME/.tmux.conf
+files=`find . -maxdepth 1  | grep -v -E "^./(\..+|.+~$|makelnk)" | grep -oh -E "\w+($|\.+\w+$)"`
+
+
+echo "will create links for following files"
+echo $files
+echo "sleeping for 5 seconds, press ctrl-c to kill"
+sleep 3
+
+for fn in $files
+do
+    unlink $HOME/.$fn
+    ln -s $HOME/dotfiles/$fn $HOME/.$fn
+done
+
