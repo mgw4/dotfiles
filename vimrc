@@ -49,6 +49,9 @@ inoremap [<CR>  [<CR>]<ESC>O
 inoremap {{     {
 inoremap {}     {}
 inoremap []     []
+inoremap ""     ""
+inoremap ''     ''
+
 
 inoremap        (  ()<Left>
 inoremap <expr> )  strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
