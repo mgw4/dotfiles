@@ -12,6 +12,22 @@ set autoindent
 "
 let mapleader=","
 
+
+"
+" handle json highlighting
+"
+autocmd BufNewFile,BufRead *.json set ft=javascript
+
+augroup json_autocmd
+  autocmd!
+  autocmd FileType json set autoindent
+  autocmd FileType json set formatoptions=tcq2l
+  autocmd FileType json set textwidth=78 shiftwidth=2
+  autocmd FileType json set softtabstop=2 tabstop=8
+  autocmd FileType json set expandtab
+  autocmd FileType json set foldmethod=syntax
+augroup END
+
 "
 "required for ctrlspace
 "
@@ -35,11 +51,11 @@ endif
 " set relative line numbers in various conditions
 "
 set number
-au FocusLost * :set number
-au FocusGained * :set relativenumber
-
-autocmd InsertEnter * :set number
-autocmd InsertLeave * :set relativenumber
+" au FocusLost * :set number
+" au FocusGained * :set relativenumber
+" 
+" autocmd InsertEnter * :set number
+" autocmd InsertLeave * :set relativenumber
 
 "
 " add fancy bracket stuff
