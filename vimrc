@@ -39,12 +39,6 @@ set hidden
 "
 set clipboard=unnamedplus
 
-"
-" set vim color count 
-"
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=265
-endif
 
 
 "
@@ -197,6 +191,11 @@ noremap <Right> <NOP>
 set laststatus=2
 set ttimeoutlen=50
 " let g:airline#extensions#tabline#enabled = 1
+
+"
+" set 256 color
+"
+set t_Co=256
 
 "
 " set colorscheme

@@ -113,7 +113,12 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+if [ "$TERM" == "xterm" ]; then
+    export TERM=xterm-256color
+fi
 PATH=$PATH:$HOME/bin
+
 export PATH
 
 export PIP_DOWNLOAD_CACHE=$HOME/pip
