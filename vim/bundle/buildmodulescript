@@ -1,0 +1,10 @@
+#!/bin/bash
+
+cd ~/.vim/bundle
+
+echo "#/bin/bash" > clone_modules
+echo >> clone_modules
+echo "cd ~/.vim/bundle/" >> clone_modules 
+
+find ./ -type d -name *.git -exec cat {}/config  \; | grep url |grep -oh -E "(\S+$)" |  awk '{print "git clone "$1}'  >> clone_modules 
+chmod +x clone_modules

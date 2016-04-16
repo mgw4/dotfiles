@@ -1,21 +1,12 @@
 [submodule "vim/bundle/ctrlp.vim"]
 	path = vim/bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
-[submodule "vim/bundle/indentpython.vim"]
-	path = vim/bundle/indentpython.vim
-	url = https://github.com/vim-scripts/indentpython.vim.git
 [submodule "vim/bundle/jedi-vim"]
 	path = vim/bundle/jedi-vim
 	url = https://github.com/davidhalter/jedi-vim.git
-[submodule "vim/bundle/python-mode"]
-	path = vim/bundle/python-mode
-	url = https://github.com/klen/python-mode.git
 [submodule "vim/bundle/vim-airline"]
 	path = vim/bundle/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
-[submodule "vim/bundle/vim-autopep8"]
-	path = vim/bundle/vim-autopep8
-	url = https://github.com/tell-k/vim-autopep8.git
 [submodule "vim/bundle/vim-pydocstring"]
 	path = vim/bundle/vim-pydocstring
 	url = https://github.com/heavenshell/vim-pydocstring.git
@@ -25,3 +16,6 @@
 [submodule "vim/bundle/vim-fugitive"]
 	path = vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vim/bundle/SimpylFold"]
+	path = vim/bundle/SimpylFold
+	url = https://github.com/tmhedberg/SimpylFold.git
