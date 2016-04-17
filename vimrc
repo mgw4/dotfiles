@@ -27,6 +27,7 @@ augroup json_autocmd
   autocmd FileType json set softtabstop=2 tabstop=8
   autocmd FileType json set expandtab
   autocmd FileType json set foldmethod=syntax
+  autocmd FileType json nmap <leader>f :%!python -m json.tool
 augroup END
 
 
@@ -127,15 +128,15 @@ set directory=$HOME/.vim_backup//
 "
 nmap <leader>l :set list!<CR>
 
+" more custom bindings are in the ftplugin folder for the appropriate file
+" type
 
-" use <leader>t to write a try block
-nmap <leader>t itry:<CR>except:<CR>pass<ESC>kkA<CR>
 
-"use <leader>m to write a main block
-nmap <leader>m GA<CR><ESC>0Di<CR><CR>def main():<CR>pass<CR><CR>if __name__ == "__main__":<CR>main()<ESC>kkk^ve
+" some weird option that have cropped up 
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =0
 
-" user <leader>s to generate a doc string
-nmap <leader>s :Pydocstring<CR>
+
 
 
 "
