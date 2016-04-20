@@ -1,6 +1,6 @@
 #!/bin/bash
 
-files=`find . -maxdepth 1  | grep -v -E "^./(\..+|.+~$|makelnk)" | grep -oh -E "\w+($|\.+\w+$)"`
+files=`find . -maxdepth 1  | grep -v -E "^./(\..+|.+~$|makelnk|.+\.odt$|README.md)" | grep -oh -E "\w+($|\.+\w+$)"`
 
 
 echo "will create links for following files"
@@ -13,4 +13,18 @@ do
     unlink $HOME/.$fn
     ln -s $HOME/dotfiles/$fn $HOME/.$fn
 done
+
+# 
+# Aditional links required for zsh and prezto
+#
+
+declare -a zfiles=("zlogin" "zlogout" "zpreztorc" "zprofile" "zshenv")
+
+for f in "${zfiles[@]}"
+do
+    unlink $HOME/.$f
+    ln -s $HOME/.zprezto/runcoms/$f $HOME/.$f
+done
+
+declare -a arr=("element1" "element2" "element3")
 
