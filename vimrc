@@ -37,6 +37,14 @@ augroup END
 set nocompatible
 set hidden
 
+if executable("ag")
+    let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
+endif
+
+let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
+let g:CtrlSpaceSaveWorkspaceOnExit = 1
+
+hi CtrlSpaceSearch guifg=#cb4b16 guibg=NONE gui=bold ctermfg=9 ctermbg=NONE term=bold cterm=bold
 
 " 
 " set vim to use the system clipboard
@@ -135,8 +143,6 @@ nmap <leader>l :set list!<CR>
 " some weird option that have cropped up 
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhist_cnt =0
-
-
 
 
 "

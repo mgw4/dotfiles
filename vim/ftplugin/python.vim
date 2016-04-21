@@ -8,4 +8,6 @@ nmap <leader>t itry:<CR>except:<CR>pass<ESC>kkA<CR>
 nmap <leader>m GA<CR><ESC>0Di<CR><CR>def main():<CR>pass<CR><CR>if __name__ == "__main__":<CR>main()<ESC>kkk^ve
 
 " user <leader>s to generate a doc string
-nmap <leader>s :Pydocstring<CR>
+nmap <leader>d :Pydocstring<CR>
+
+nmap <leader>s ^f,a<CR><ESC>
