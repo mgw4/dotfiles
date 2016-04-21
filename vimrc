@@ -7,6 +7,12 @@ execute pathogen#helptags()
 filetype plugin indent on
 set autoindent
 
+"
+" map more keys to escape
+"
+imap jj <ESC>
+imap jk <ESC>
+
 
 " 
 " set the leader key to ','
@@ -94,9 +100,13 @@ let g:flake8_show_in_gutter=1
 " run flake8 on write
 autocmd BufWritePost *.py call Flake8()
 
+" 
+" autopep8 settings
 "
+
+let g:autopep8_disable_show_diff=1
+
 " have autopep8 run on selected code when gq is pressed
-"
 au FileType python setlocal formatprg=autopep8\ -
 
 
