@@ -11,3 +11,9 @@ nmap <leader>m GA<CR><ESC>0Di<CR><CR>def main():<CR>pass<CR><CR>if __name__ == "
 nmap <leader>d :Pydocstring<CR>
 
 nmap <leader>s ^f,a<CR><ESC>
+
+" 
+" ipdbg break point
+"
+nmap <leader>b Oimport ipdb ; ipdb.set_trace() # XXX Break Point<ESC>
+nmap <leader>e Ofrom IPython import embed ; embed() # XXX Ipython embed break point<ESC>
