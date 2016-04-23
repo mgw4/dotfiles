@@ -8,6 +8,11 @@ filetype plugin indent on
 set autoindent
 
 "
+" set colorscheme
+"
+colorscheme xoria256 " ron
+
+"
 " map more keys to escape
 "
 imap jj <ESC>
@@ -187,11 +192,12 @@ inoremap <Down> <NOP>
 
 
 "
-" set nice line at 80 , 120 and 121 chars
+" set nice line from 120 to 999 chars
 "
-set colorcolumn=80,120,121
-highlight ColorColumn ctermbg=0 guibg=lightgrey
-
+let &colorcolumn="".join(range(120,999),",")
+highlight ColorColumn ctermbg=17 guibg=lightgrey
+highlight OverLength ctermbg=17 ctermfg=white guibg=#59292
+match OverLength /\%81v.\+/
 
 "
 " set 256 color
@@ -199,8 +205,4 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 set t_Co=256
 
 
-"
-" set colorscheme
-"
-colorscheme ron
 
