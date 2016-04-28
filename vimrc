@@ -114,7 +114,12 @@ let g:autopep8_disable_show_diff=1
 " have autopep8 run on selected code when gq is pressed
 au FileType python setlocal formatprg=autopep8\ -
 
+" 
+" jedi settings
+"
 
+" disable the auto doc string on completion
+autocmd FileType python setlocal completeopt-=preview
 
 "
 " Not sure what this does

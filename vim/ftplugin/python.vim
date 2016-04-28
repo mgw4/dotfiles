@@ -1,6 +1,9 @@
 " Python specific key bindings
 "
 
+" load the last python command that was run on the current buffer
+nmap <F5> :wa<CR>:! python %<up>
+
 " use <leader>t to write a try block
 nmap <leader>t Otry:<CR>except:<CR>pass<ESC>kkA<CR>
 
