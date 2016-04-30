@@ -2,7 +2,9 @@
 "
 
 " load the last python command that was run on the current buffer
-nmap <F5> :wa<CR>:! python %<up>
+
+nmap <F4> :let mainfile = bufname('%')<CR>:let args = input("Specify command line arguments: ")<CR>
+nmap <F5> :wa<CR>:execute '!python ' . mainfile . ' ' . args<CR>
 
 " use <leader>t to write a try block
 nmap <leader>t Otry:<CR>except:<CR>pass<ESC>kkA<CR>

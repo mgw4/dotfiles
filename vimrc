@@ -4,8 +4,14 @@ filetype off                  " required
 execute pathogen#infect()
 execute pathogen#helptags()
 
+set hidden
+
 filetype plugin indent on
 set autoindent
+
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :e ~/.vimrc<CR>
+nmap <silent> <leader>sv :so ~/.vimrc<CR>
 
 "
 " set colorscheme
