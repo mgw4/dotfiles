@@ -83,8 +83,6 @@ set number
 " autocmd InsertLeave * :set relativenumber
 
 
-
-
 "
 " airline settings
 "
@@ -130,9 +128,9 @@ autocmd FileType python setlocal completeopt-=preview
 "
 " Not sure what this does
 "
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
+" nnoremap <C-J> <C-W><C-J>
+" nnoremap <C-K> <C-W><C-K>
+" nnoremap <C-L> <C-W><C-L>
 
 
 "
@@ -200,7 +198,15 @@ inoremap <Down> <NOP>
 "inoremap <Left> <NOP>
 "inoremap <Right> <NOP>
 
-
+"
+" set quick keys to suround selected text with
+"
+vmap <leader>' di'<ESC>pa'
+vmap <leader>" di"<ESC>pa"
+vmap <leader>( di(<ESC>pa)
+vmap <leader>[ di[<ESC>pa]
+vmap <leader>) di(<ESC>pa)
+vmap <leader>] di[<ESC>pa]
 
 "
 " set nice line from 120 to 999 chars
