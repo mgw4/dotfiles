@@ -1,6 +1,8 @@
 set nocompatible              " required
 filetype off                  " required
 
+set encoding=utf-8
+
 execute pathogen#infect()
 execute pathogen#helptags()
 
@@ -89,6 +91,7 @@ set number
 set laststatus=2
 set ttimeoutlen=50
 " let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 "
 " SimplyFold settings
