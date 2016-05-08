@@ -91,6 +91,8 @@ set number
 set laststatus=2
 set ttimeoutlen=50
 " let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#ctrlspace#enabled = 1
+let g:CtrlSpaceStatuslineFunction = "airline#extensions#ctrlspace#statusline()"
 let g:airline_powerline_fonts = 1
 
 "
@@ -204,12 +206,12 @@ inoremap <Down> <NOP>
 "
 " set quick keys to suround selected text with
 "
-vmap <leader>' di'<ESC>pa'
-vmap <leader>" di"<ESC>pa"
-vmap <leader>( di(<ESC>pa)
-vmap <leader>[ di[<ESC>pa]
-vmap <leader>) di(<ESC>pa)
-vmap <leader>] di[<ESC>pa]
+vmap <leader>' di'<ESC>pa'<ESC>
+vmap <leader>" di"<ESC>pa"<ESC>
+vmap <leader>( di(<ESC>pa)<ESC>
+vmap <leader>[ di[<ESC>pa]<ESC>
+vmap <leader>) di(<ESC>pa)<ESC>
+vmap <leader>] di[<ESC>pa]<ESC>
 
 "
 " set nice line from 120 to 999 chars
