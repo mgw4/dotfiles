@@ -117,6 +117,10 @@ fi
 if [ "$TERM" == "xterm" ]; then
     export TERM=xterm-256color
 fi
+
+#set vim editor mode
+set -o vim
+
 PATH=$PATH:$HOME/bin
 
 export PATH

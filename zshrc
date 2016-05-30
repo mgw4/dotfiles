@@ -6,13 +6,18 @@
 #
 
 PATH=$PATH:$HOME/bin
+PIP_DOWNLOAD_CACHE=$HOME/pip
 
+#set vim editting mode
+bindkey -v
+zle -N zle-line-init
+zle -N zle-keymap-select
 
 # load virtualenvwrapper for python (after custom PATHs)
-venvwrap="virtualenvwrapper.sh"
-/usr/bin/which -s $venvwrap
-if [ $? -eq 0 ]; then
-    venvwrap=`/usr/bin/which $venvwrap`
+venvwrap="/usr/share/virtualenvwrapper/virtualenvwrapper.sh"
+venvwrap=`locate virtualenvwrapper.sh`
+
+if [ -e $venvwrap ]; then
     source $venvwrap
 fi
 
