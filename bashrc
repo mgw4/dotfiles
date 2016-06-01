@@ -119,7 +119,7 @@ if [ "$TERM" == "xterm" ]; then
 fi
 
 #set vim editor mode
-set -o vim
+set -o vi
 
 PATH=$PATH:$HOME/bin
 
