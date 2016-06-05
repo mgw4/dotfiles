@@ -21,5 +21,5 @@ nmap <leader>s ^f,a<CR><ESC>
 " ipdbg break point
 "
 nmap <leader>b Oimport ipdb; ipdb.set_trace() # XXX Break Point<ESC>
-nmap <leader>e Ofrom IPython import embed; embed() # XXX Ipython embed break point<ESC>
+nmap <leader>e Ofrom IPython embed; embed() # XXX Ipython embed break point<ESC>
 
