@@ -23,8 +23,8 @@ colorscheme xoria256 " ron
 "
 " map more keys to escape
 "
-imap jj <ESC>
-imap jk <ESC>
+" imap jj <ESC>
+" imap jk <ESC>
 
 
 " 
@@ -220,6 +220,13 @@ let &colorcolumn="".join(range(120,999),",")
 highlight ColorColumn ctermbg=17 guibg=lightgrey
 highlight OverLength ctermbg=17 ctermfg=white guibg=#59292
 match OverLength /\%81v.\+/
+
+"
+" remember location from last edit
+"
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
 
 "
 " set 256 color
