@@ -232,6 +232,13 @@ highlight ColorColumn ctermbg=17 guibg=lightgrey
 highlight OverLength ctermbg=17 ctermfg=white guibg=#59292
 match OverLength /\%81v.\+/
 
+"
+" ultrasnips config
+"
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 "
 " remember location from last edit
