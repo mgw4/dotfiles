@@ -6,6 +6,8 @@ bindkey -v
 zle -N zle-line-init
 zle -N zle-keymap-select
 
+export GOPATH=$HOME/go
+
 # load virtualenvwrapper for python (after custom PATHs)
 # I have to come up with a better way to do this
 if [ -e $VIRTUAL_ENV/bin/virtualenvwrapper.sh ]

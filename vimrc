@@ -130,6 +130,7 @@ let g:autopep8_disable_show_diff=1
 
 " have autopep8 run on selected code when gq is pressed
 au FileType python setlocal formatprg=autopep8\ -
+autocmd FileType python map <buffer> <F8> :call Autopep8()<CR>:w<CR>
 
 
 " 
