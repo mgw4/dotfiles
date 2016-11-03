@@ -1,4 +1,4 @@
-PATH=$PATH:$HOME/bin
+PATH=$PATH:/usr/local/go/bin:$HOME/bin:$HOME/go/bin
 PIP_DOWNLOAD_CACHE=$HOME/pip
 
 # set vim editting mode
