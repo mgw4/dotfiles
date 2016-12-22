@@ -138,7 +138,7 @@ autocmd FileType python map <buffer> <F8> :call Autopep8()<CR>:w<CR>
 "
 
 " disable the auto doc string on completion
-autocmd FileType python setlocal completeopt-=preview
+" autocmd FileType python setlocal completeopt-=preview
 
 
 "
@@ -248,6 +248,18 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+" 
+" Syntastic setting
+"
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['pylint']
 
 "
 " set 256 color
