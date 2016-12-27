@@ -14,7 +14,7 @@ echo
 echo "Note:  This will erase any current configuration that you may have"
 echo
 echo "sleeping for 5 seconds, press ctrl-c to kill"
-sleep 3
+# sleep 3
 
 for fn in $files
 do
@@ -34,5 +34,38 @@ do
     ln -s $HOME/.zprezto/runcoms/$f $HOME/.$f
 done
 
-declare -a arr=("element1" "element2" "element3")
 
+#
+# aditional links for neovim
+#
+nvpath=`which nvim`
+if [ -x "$nvpath" ]
+then
+    echo "neovim detected adding files"
+
+    nvbase=$HOME/.config/nvim
+    nvinit=$nvbase/init.vim
+    vimfolder=$dotdir/vim
+
+    echo "Adding files for neovim support"
+    echo "to the $nvbase folder"
+
+    vimfolders=`cd $vimfolder ; find * -mindepth 0 -maxdepth 0 -type d `
+
+    mkdir -p $nvbase
+    unlink $nvinit
+    ln -s $dotdir/vimrc $nvinit
+
+    mkdir -p $nvbase
+    unlink $nvinit
+    ln -s $dotdir/vimrc $nvinit
+
+    for fn in $vimfolders
+    do
+        echo unlink $nvbase/$fn
+        echo ln -s $vimfolder/$fn $nvbase/$fn
+        unlink $nvbase/$fn
+        ln -s $vimfolder/$fn $nvbase/$fn
+    done
+
+fi

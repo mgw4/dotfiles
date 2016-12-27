@@ -35,3 +35,5 @@ fi
 # 
 # Customize to your needs...
 #
+export EDITOR=/usr/bin/vim
+export VISUAL=/usr/bin/vim

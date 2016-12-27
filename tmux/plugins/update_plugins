@@ -1,0 +1,3 @@
+#!/bin/bash
+
+find ./ -type d -name .git -exec sh -c 'cd {} ; cd ../ ; echo \"updating plugin {} \"; git pull'  \;

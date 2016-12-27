@@ -261,6 +261,13 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['pylint']
 
+" 
+" Set local vimrc support
+" Allows users to set project specific .vimrc files in the project root
+"
+set exrc
+set secure
+
 "
 " set 256 color
 "
