@@ -19,11 +19,6 @@ nmap <silent> <leader>ev :e ~/.vimrc<CR>
 nmap <silent> <leader>sv :so ~/.vimrc<CR>
 
 
-"
-" set colorscheme
-"
-colorscheme xoria256 " ron
-
 
 "
 " map more keys to escape
@@ -69,6 +64,17 @@ endif
 
 let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
 let g:CtrlSpaceSaveWorkspaceOnExit = 1
+" 
+" also add && !has('nvim') to the line 155 of
+" vim-ctrlspace/autoload/ctrlspace/keys.vim 
+" should now read 
+" if s:defaultKey ==? "<C-Space>" && !has("gui_running") && !has("win32") && !has('nvim')
+"
+
+if exists('g:neovim_dot_app')
+    nmap <c-space> <nul>
+end
+
 
 hi CtrlSpaceSearch guifg=#cb4b16 guibg=NONE gui=bold ctermfg=9 ctermbg=NONE term=bold cterm=bold
 
@@ -249,17 +255,23 @@ if has("autocmd")
 endif
 
 " 
+" YCM settings
+"
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" 
 " Syntastic setting
 "
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['pylint']
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" 
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_python_checkers = ['pylint']
 
 " 
 " Set local vimrc support
@@ -272,4 +284,9 @@ set secure
 " set 256 color
 "
 set t_Co=256
+
+"
+" set colorscheme
+"
+colorscheme xoria256 " ron
 
