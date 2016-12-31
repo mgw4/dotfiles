@@ -3,8 +3,8 @@
 
 " load the last python command that was run on the current buffer
 
-nmap <F4> :let mainfile = bufname('%')<CR>:let args = input("Specify command line arguments: ")<CR>
-nmap <F5> :wa<CR>:execute '!python ' . mainfile . ' ' . args<CR>
+nmap <F4> :let cmd = input("Specify command to run on <F5>: ")<CR>
+nmap <F5> :wa<CR>:execute '!'.cmd<CR>
 
 " use <leader>t to write a try block
 nmap <leader>t Otry:<CR>except:<CR>pass<ESC>kkA<CR>
@@ -23,3 +23,6 @@ nmap <leader>s ^f,a<CR><ESC>
 nmap <leader>b Oimport ipdb; ipdb.set_trace() # XXX Break Point<ESC>
 nmap <leader>e Ofrom IPython embed; embed() # XXX Ipython embed break point<ESC>
 imap <F8> <ESC><F8>
+
+nmap <leader>d :YcmCompleter GoToDeclaration<CR>
+nmap <leader>r :YcmCompleter GoToDeclaration<CR>

@@ -195,7 +195,8 @@ set expandtab
 " high light searches 
 "
 set hlsearch
-
+set smartcase
+set incsearch
 
 "
 " more subtle popup colors

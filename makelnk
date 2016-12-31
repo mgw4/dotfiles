@@ -4,7 +4,7 @@ dotdir=`readlink -e \`dirname ${BASH_SOURCE[0]}\``
 
 cd $dotdir
 
-files=`find . -maxdepth 1  | grep -v -E "^./(\..+|.+~$|makelnk|.+\.odt$|README.md)" | grep -oh -E "\w+($|\.+\w+$)"`
+files=`find . -maxdepth 1  | grep -v -E "^./(\..+|.+~$|makelnk|.+\.odt$|README.md|buildmodulescript)" | grep -oh -E "\w+($|\.+\w+$)"`
 
 
 echo "will create links for following files"
@@ -13,7 +13,6 @@ echo from the $dotdir directory to the $HOME directory
 echo
 echo "Note:  This will erase any current configuration that you may have"
 echo
-echo "sleeping for 5 seconds, press ctrl-c to kill"
 # sleep 3
 
 for fn in $files

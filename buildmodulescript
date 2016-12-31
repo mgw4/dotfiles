@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ -z "$1" ]
+then
+    echo "running in localfolder"
+else
+    cd $1 && echo "running in $1" || (echo "invalid folder" ; exit 1)
+fi
+plugindir=`pwd`
+clscript=$plugindir/clone_plugins
+
+echo "#!/bin/bash" > $clscript
+echo >> $clscript
+echo 'cd `readlink -e \`dirname ${BASH_SOURCE[0]}\``' >> $clscript
+
+find ./ -maxdepth 2 -type d -name *.git -exec git -C {} config --get remote.origin.url  \; | awk '{print "git clone "$1}' >> $clscript
+chmod +x $clscript
