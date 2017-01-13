@@ -32,6 +32,10 @@ fi
 if [[ "$TERM" == "xterm" ]]; then
     export TERM=xterm-256color
 fi
+#
+# Auto rehash files
+#
+zstyle ":completion:*:commands" rehash 1
 # 
 # Customize to your needs...
 #
