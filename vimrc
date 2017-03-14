@@ -237,7 +237,7 @@ vmap <leader>] di[<ESC>pa]<ESC>
 "
 let &colorcolumn="121"
 highlight ColorColumn ctermbg=17 guibg=lightgrey
-highlight OverLength ctermbg=17 ctermfg=white guibg=#59292
+highlight OverLength ctermbg=17 ctermfg=white guibg=lightgrey
 match OverLength /\%81v.\+/
 
 "
