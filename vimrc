@@ -182,6 +182,12 @@ nmap <leader>l :set list!<CR>
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhist_cnt =0
 
+" 
+" delimitmate options
+"
+let g:delimitMate_expand_cr = 1
+let g:delimitMate_expand_space = 1
+
 
 "
 "  prefer spaces to tabs
