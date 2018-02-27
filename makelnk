@@ -21,6 +21,9 @@ do
     ln -s $dotdir/$fn $HOME/.$fn
 done
 
+#make dirs for vimbackup
+mkdir -p $HOME/.vim_backup
+
 # 
 # Aditional links required for zsh and prezto
 #
