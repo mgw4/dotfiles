@@ -1,0 +1,33 @@
+[submodule "vim/bundle/vim-ctrlspace"]
+	path = vim/bundle/vim-ctrlspace
+    url = https://github.com/vim-ctrlspace/vim-ctrlspace.git
+[submodule "vim/bundle/ctrlp.vim"]
+	path = vim/bundle/ctrp.vim
+    url = https://github.com/kien/ctrlp.vim.git
+[submodule "vim/bundle/vim-flake8"]
+	path = vim/bundle/vim-flake8
+	url = https://github.com/nvie/vim-flake8.git
+[submodule "vim/bundle/vim-pydocstring"]
+	path = vim/bundle/vim-pydocstring
+	url = https://github.com/heavenshell/vim-pydocstring.git
+[submodule "vim/bundle/delimitMate"]
+	path = vim/bundle/delimitMate
+	url = https://github.com/Raimondi/delimitMate.git
+[submodule "vim/bundle/vim-powerline"]
+	path = vim/bundle/vim-powerline
+	url = https://github.com/Lokaltog/vim-powerline.git
+[submodule "vim/bundle/YouCompleteMe"]
+	path = vim/bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "vim/bundle/requests-futures"]
+	path = vim/bundle/requests-futures
+	url = https://github.com/ross/requests-futures
+[submodule "vim/bundle/ycmd"]
+	path = vim/bundle/ycmd
+	url = https://github.com/Valloric/ycmd
+[submodule "vim/bundle/vim-autopep8"]
+	path = vim/bundle/vim-autopep8
+	url = https://github.com/tell-k/vim-autopep8.git
+[submodule "vim/bundle/vim-python-pep8-indent"]
+	path = vim/bundle/vim-python-pep8-indent
+	url = https://github.com/hynek/vim-python-pep8-indent.git
