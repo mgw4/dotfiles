@@ -1,9 +1,9 @@
 [submodule "vim/bundle/vim-ctrlspace"]
 	path = vim/bundle/vim-ctrlspace
-    url = https://github.com/vim-ctrlspace/vim-ctrlspace.git
+	url = https://github.com/vim-ctrlspace/vim-ctrlspace.git
 [submodule "vim/bundle/ctrlp.vim"]
 	path = vim/bundle/ctrp.vim
-    url = https://github.com/kien/ctrlp.vim.git
+	url = https://github.com/kien/ctrlp.vim.git
 [submodule "vim/bundle/vim-flake8"]
 	path = vim/bundle/vim-flake8
 	url = https://github.com/nvie/vim-flake8.git
