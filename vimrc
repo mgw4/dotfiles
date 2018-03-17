@@ -10,30 +10,16 @@ set hidden
 
 filetype plugin indent on
 set autoindent
-
-
+" 
+" set backup and swap directory
 "
-" Quickly edit/reload the vimrc file
-"
-nmap <silent> <leader>ev :e ~/.vimrc<CR>
-nmap <silent> <leader>sv :so ~/.vimrc<CR>
-
-
-
-"
-" map more keys to escape
-" disabled because it is too awesome 
-" and causes problems when it is not enabled
-"
-" imap jj <ESC>
-" imap jk <ESC>
-
+set backupdir=$HOME/.vim_backup//
+set directory=$HOME/.vim_backup//
 
 " 
 " set the leader key to ','
 "
 let mapleader=","
-
 
 "
 " handle json highlighting
@@ -50,74 +36,6 @@ augroup json_autocmd
   autocmd FileType json set foldmethod=syntax
   autocmd FileType json nmap <leader>f :%!python -m json.tool
 augroup END
-
-
-"
-"required for ctrlspace
-"
-set nocompatible
-set hidden
-
-if executable("ag")
-    let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
-endif
-
-let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
-let g:CtrlSpaceSaveWorkspaceOnExit = 1
-" 
-" also add && !has('nvim') to the line 155 of
-" vim-ctrlspace/autoload/ctrlspace/keys.vim 
-" should now read 
-" if s:defaultKey ==? "<C-Space>" && !has("gui_running") && !has("win32") && !has('nvim')
-"
-
-if exists('g:neovim_dot_app')
-    nmap <c-space> <nul>
-end
-
-
-hi CtrlSpaceSearch guifg=#cb4b16 guibg=NONE gui=bold ctermfg=9 ctermbg=NONE term=bold cterm=bold
-
-
-" 
-" set vim to use the system clipboard
-"
-set clipboard=unnamedplus
-
-
-"
-" set relative line numbers in various conditions
-"
-set number
-
-au FocusLost * :set number
-au FocusGained * :set relativenumber
-autocmd InsertEnter * :set number
-autocmd InsertLeave * :set relativenumber
-
-
-"
-" airline settings
-"
-set laststatus=2
-set ttimeoutlen=50
-" let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#ctrlspace#enabled = 1
-let g:CtrlSpaceStatuslineFunction = "airline#extensions#ctrlspace#statusline()"
-let g:airline_powerline_fonts = 1
-
-
-"
-" SimplyFold settings
-"
-let g:SimpylFold_fold_docstring = 0
-
-
-" 
-" Jedi setting to set the doc string window at the bottom
-"
-set splitbelow
-
 
 "
 " flake8 settings
@@ -139,14 +57,6 @@ au FileType python setlocal formatprg=autopep8\ -
 autocmd FileType python map <buffer> <F8> :call Autopep8()<CR>:w<CR>
 
 
-" 
-" jedi settings
-"
-
-" disable the auto doc string on completion
-" autocmd FileType python setlocal completeopt-=preview
-
-
 "
 " remap the keys to switch windows
 " 
@@ -154,33 +64,6 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-
-
-" 
-" disable pydocstring mapping
-"
-let g:pydocstring_enable_mapping = 0
-
-
-" 
-" set backup and swap directory
-"
-set backupdir=$HOME/.vim_backup//
-set directory=$HOME/.vim_backup//
-
-
-"
-" Use <leader>l to toggle display of whitespace
-"
-nmap <leader>l :set list!<CR>
-
-" more custom bindings are in the ftplugin folder for the appropriate file
-" type
-
-
-" some weird option that have cropped up 
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =0
 
 " 
 " delimitmate options
@@ -196,21 +79,12 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-
 "
 " high light searches 
 "
 set hlsearch
 set smartcase
 set incsearch
-
-"
-" more subtle popup colors
-"
-if has ('gui_running')
-    highlight Pmenu guibg=#cccccc gui=bold
-endif
-
 
 "
 " remove the arrow keys in vim 
@@ -225,18 +99,6 @@ inoremap <Down> <NOP>
 "inoremap <Left> <NOP>
 "inoremap <Right> <NOP>
 
-
-"
-" set quick keys to suround selected text with
-"
-vmap <leader>' di'<ESC>pa'<ESC>
-vmap <leader>" di"<ESC>pa"<ESC>
-vmap <leader>( di(<ESC>pa)<ESC>
-vmap <leader>[ di[<ESC>pa]<ESC>
-vmap <leader>) di(<ESC>pa)<ESC>
-vmap <leader>] di[<ESC>pa]<ESC>
-
-
 "
 " set nice line at 121 
 " set highlight chars over 80
@@ -247,14 +109,6 @@ highlight OverLength ctermbg=17 ctermfg=white guibg=lightgrey
 match OverLength /\%81v.\+/
 
 "
-" ultrasnips config
-"
-
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-"
 " remember location from last edit
 "
 if has("autocmd")
@@ -262,32 +116,16 @@ if has("autocmd")
 endif
 
 " 
+" Jedi setting to set the doc string window at the bottom
+"
+set splitbelow
+
+" 
 " YCM settings
 "
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_python_binary_path = 'python'
-map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-" 
-" Syntastic setting
-"
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-" 
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_python_checkers = ['pylint']
-
-" 
-" Set local vimrc support
-" Allows users to set project specific .vimrc files in the project root
-"
-set exrc
-set secure
-
+map <leader>g :YcmCompleter GoTo<CR>
 "
 " set 256 color
 "
