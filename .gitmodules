@@ -1,5 +1,5 @@
 [submodule "vim/bundle/ctrlp.vim"]
-	path = vim/bundle/ctrp.vim
+	path = vim/bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
 [submodule "vim/bundle/vim-flake8"]
 	path = vim/bundle/vim-flake8
@@ -28,3 +28,6 @@
 [submodule "vim/bundle/vim-python-pep8-indent"]
 	path = vim/bundle/vim-python-pep8-indent
 	url = https://github.com/hynek/vim-python-pep8-indent.git
+[submodule "vim/bundle/vim-ctrlspace"]
+	path = vim/bundle/vim-ctrlspace
+	url = https://github.com/vim-ctrlspace/vim-ctrlspace.git
