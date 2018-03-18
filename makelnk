@@ -28,46 +28,21 @@ mkdir -p $HOME/.vim_backup
 # Aditional links required for zsh and prezto
 #
 
-declare -a zfiles=("zlogin" "zlogout" "zpreztorc" "zprofile" "zshenv")
+# DISABLED for now
+# declare -a zfiles=("zlogin" "zlogout" "zpreztorc" "zprofile" "zshenv")
+# 
+# for f in "${zfiles[@]}"
+# do
+#     unlink $HOME/.$f
+#     ln -s $HOME/.zprezto/runcoms/$f $HOME/.$f
+# done
 
-for f in "${zfiles[@]}"
+# options to place in $HOME/.config folder
+declare -a dotconf=("i3")
+for f in "${dotconf[@]}"
 do
-    unlink $HOME/.$f
-    ln -s $HOME/.zprezto/runcoms/$f $HOME/.$f
+    unlink $HOME/.conf/$f
+    ln -s $dotdir/config/$f $HOME/.config/$f
 done
 
 
-#
-# aditional links for neovim
-#
-nvpath=`which nvim`
-if [ -x "$nvpath" ]
-then
-    echo "neovim detected adding files"
-
-    nvbase=$HOME/.config/nvim
-    nvinit=$nvbase/init.vim
-    vimfolder=$dotdir/vim
-
-    echo "Adding files for neovim support"
-    echo "to the $nvbase folder"
-
-    vimfolders=`cd $vimfolder ; find * -mindepth 0 -maxdepth 0 -type d `
-
-    mkdir -p $nvbase
-    unlink $nvinit
-    ln -s $dotdir/vimrc $nvinit
-
-    mkdir -p $nvbase
-    unlink $nvinit
-    ln -s $dotdir/vimrc $nvinit
-
-    for fn in $vimfolders
-    do
-        echo unlink $nvbase/$fn
-        echo ln -s $vimfolder/$fn $nvbase/$fn
-        unlink $nvbase/$fn
-        ln -s $vimfolder/$fn $nvbase/$fn
-    done
-
-fi

@@ -1,7 +1,9 @@
-set nocompatible              " required
+set nocompatible              " required 
 filetype off                  " required
 
 set encoding=utf-8
+
+try | source $VIMRUNTIME/defaults.vim | catch | silent echo 'no defaults' | endtry
 
 execute pathogen#infect()
 execute pathogen#helptags()
@@ -54,7 +56,7 @@ let g:autopep8_disable_show_diff=1
 
 " have autopep8 run on selected code when gq is pressed
 au FileType python setlocal formatprg=autopep8\ -
-autocmd FileType python map <buffer> <F8> :call Autopep8()<CR>:w<CR>
+autocmd FileType python map <buffer> <F8> :call Autopep8()<CR>
 
 
 "
@@ -68,8 +70,8 @@ nnoremap <C-l> <C-w>l
 " 
 " delimitmate options
 "
-let g:delimitMate_expand_cr = 1
-let g:delimitMate_expand_space = 1
+" let g:delimitMate_expand_cr = 1
+" let g:delimitMate_expand_space = 1
 
 
 "
