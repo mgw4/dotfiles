@@ -18,6 +18,8 @@ set autoindent
 set backupdir=$HOME/.vim_backup//
 set directory=$HOME/.vim_backup//
 
+set undofile
+set undodir=$HOME/.vim_undo//
 " 
 " set the leader key to ','
 "
@@ -122,12 +124,31 @@ endif
 "
 set splitbelow
 
+"
+" ctrl-p settings
+"
+
+let g:ctrlp_working_path_mode='rwa'
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
 " 
 " YCM settings
 "
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_python_binary_path = 'python'
 map <leader>g :YcmCompleter GoTo<CR>
+
+"
+" NERDTree
+"
+map <C-n> :NERDTreeToggle<CR>
+
 "
 " set 256 color
 "
