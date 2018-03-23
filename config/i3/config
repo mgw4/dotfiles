@@ -173,11 +173,17 @@ bindsym $mod+Mod1+s exec "smplayer"
 bindsym $mod+Mod1+g exec "gnucash"
 bindsym $mod+Mod1+c exec "google-chrome"
 bindsym $mod+Mod1+l exec "i3lock"
+bindsym $mod+Mod1+k exec "keepass2"
 
+
+for_window [instance="guake"] floating enable
 # startup applications
 # start network manager applet
 exec_always xinput --set-prop 13 "Synaptics Two-Finger Scrolling" 1 1
 exec_always /usr/libexec/gnome-settings-daemon
+exec pnmixer
+# disable mouse tap
+exec --no-startup-id synclient TapButton1=0 TapButton2=0 TapButton3=0
 # disable caps lock key
 exec_always setxkbmap -option ctrl:nocaps
 exec_always nm-applet
