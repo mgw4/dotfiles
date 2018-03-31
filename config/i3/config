@@ -156,11 +156,11 @@ bar {
         tray_output primary
 }
 
- # Pulse Audio controls
- bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +5% #increase sound volume
- bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -5% #decrease sound volume
- bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
- 
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec /opt/extras.ubuntu.com/indicator-brightness/indicator-brightness-adjust --up
 bindsym XF86MonBrightnessDown exec /opt/extras.ubuntu.com/indicator-brightness/indicator-brightness-adjust --down
@@ -174,17 +174,30 @@ bindsym $mod+Mod1+g exec "gnucash"
 bindsym $mod+Mod1+c exec "google-chrome"
 bindsym $mod+Mod1+l exec "i3lock"
 bindsym $mod+Mod1+k exec "keepass2"
+bindsym $mod+Mod1+t exec "thunar"
+bindsym $mod+Mod1+w exec "chromium-browser"
 
+# jump workspaces
+# 
+bindsym Mod1+Control+Left workspace prev
+bindsym Mod1+Control+Right workspace next
+
+
+# misc applications 
+exec_always /usr/libexec/gnome-settings-daemon
 
 for_window [instance="guake"] floating enable
-# startup applications
-# start network manager applet
-exec_always xinput --set-prop 13 "Synaptics Two-Finger Scrolling" 1 1
-exec_always /usr/libexec/gnome-settings-daemon
-exec pnmixer
-# disable mouse tap
+exec_always guake
+
+
+# mouse settings
 exec --no-startup-id synclient TapButton1=0 TapButton2=0 TapButton3=0
+exec_always xinput --set-prop 13 "Synaptics Two-Finger Scrolling" 1 1
+
 # disable caps lock key
 exec_always setxkbmap -option ctrl:nocaps
+
+# applets
+exec pnmixer
 exec_always nm-applet
 exec /opt/extras.ubuntu.com/indicator-brightness/indicator-brightness
