@@ -1,0 +1,9 @@
+alias ls="ls --color"
+alias ll="ls -l"
+alias grep="grep --color"
+function h (){
+    history | grep -E "$1"
+}
+function d (){
+    dirs | grep -E "$1"
+}
