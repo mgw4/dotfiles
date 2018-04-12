@@ -38,7 +38,7 @@ mkdir -p $HOME/.vim_backup
 # done
 
 # options to place in $HOME/.config folder
-declare -a dotconf=("i3")
+declare -a dotconf=("i3" "i3status")
 for f in "${dotconf[@]}"
 do
     unlink $HOME/.conf/$f
