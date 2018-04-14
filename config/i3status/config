@@ -14,6 +14,7 @@ general {
 # order += "ipv6"
 order += "disk /"
 order += "disk /home"
+order += "disk /usr"
 order += "disk /var"
 order += "path_exists VPN"
 order += "wireless _first_"
@@ -60,4 +61,8 @@ disk "/home" {
 
 disk "/var" {
         format = "/var %avail"
+}
+
+disk "/usr" {
+        format = "/usr %avail"
 }

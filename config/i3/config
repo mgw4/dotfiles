@@ -171,11 +171,11 @@ bindsym XF86MonBrightnessDown exec /opt/extras.ubuntu.com/indicator-brightness/i
 bindsym $mod+Mod1+f exec "firefox"
 bindsym $mod+Mod1+s exec "smplayer"
 bindsym $mod+Mod1+g exec "gnucash"
-bindsym $mod+Mod1+c exec "google-chrome"
+bindsym $mod+Mod1+w exec "google-chrome"
 bindsym $mod+Mod1+l exec "i3lock"
 bindsym $mod+Mod1+k exec "keepass2"
 bindsym $mod+Mod1+t exec "thunar"
-bindsym $mod+Mod1+w exec "chromium-browser"
+bindsym $mod+Mod1+c exec "chromium-browser"
 
 # jump workspaces
 # 
