@@ -143,11 +143,17 @@ endif
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_python_binary_path = 'python'
 map <leader>g :YcmCompleter GoTo<CR>
+map <leader>d :YcmCompleter GetDoc<CR>
 
 "
 " NERDTree
 "
 map <C-n> :NERDTreeToggle<CR>
+
+"
+" Clear search highligt
+"
+map <leader>n :nohlsearch<CR>
 
 "
 " set 256 color
