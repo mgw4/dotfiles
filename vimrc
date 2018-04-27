@@ -12,6 +12,7 @@ set hidden
 
 filetype plugin indent on
 set autoindent
+
 " 
 " set backup and swap directory
 "
@@ -20,6 +21,7 @@ set directory=$HOME/.vim_backup//
 
 set undofile
 set undodir=$HOME/.vim_undo//
+
 " 
 " set the leader key to ','
 "
@@ -53,10 +55,11 @@ autocmd BufWritePost *.py call Flake8()
 " 
 " autopep8 settings
 "
-
 let g:autopep8_disable_show_diff=1
 
+"
 " have autopep8 run on selected code when gq is pressed
+"
 au FileType python setlocal formatprg=autopep8\ -
 autocmd FileType python map <buffer> <F8> :call Autopep8()<CR>
 
@@ -72,8 +75,8 @@ nnoremap <C-l> <C-w>l
 " 
 " delimitmate options
 "
-" let g:delimitMate_expand_cr = 1
-" let g:delimitMate_expand_space = 1
+let g:delimitMate_expand_cr = 1
+let g:delimitMate_expand_space = 1
 
 
 "
@@ -100,8 +103,8 @@ noremap <Right> <NOP>
 
 inoremap <Up> <NOP>
 inoremap <Down> <NOP>
-"inoremap <Left> <NOP>
-"inoremap <Right> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
 
 "
 " set nice line at 121 
@@ -127,7 +130,6 @@ set splitbelow
 "
 " ctrl-p settings
 "
-
 let g:ctrlp_working_path_mode='rwa'
 if executable('ag')
   " Use Ag over Grep
@@ -153,7 +155,7 @@ map <C-n> :NERDTreeToggle<CR>
 "
 " Clear search highligt
 "
-map <leader>n :nohlsearch<CR>
+map <leader>, :nohlsearch<CR>
 
 "
 " set 256 color
