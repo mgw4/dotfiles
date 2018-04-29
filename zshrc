@@ -38,8 +38,10 @@ bindkey '\e[3~'   delete-char             # Del
 bindkey '\e[5~'   history-search-backward # PgUp
 bindkey '\e[6~'   history-search-forward  # PgDn
 bindkey '^A'      beginning-of-line       # Home
-bindkey '^D'      delete-char             # Del
+bindkey '^D'      delete-word             # Del
 bindkey '^E'      end-of-line             # End
+bindkey '\eOA'    history-beginning-search-backward   # Up
+bindkey '\eOB'    history-beginning-search-forward    # Down
 bindkey '^R'      history-incremental-pattern-search-backward 
 
 ##
