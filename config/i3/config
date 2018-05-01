@@ -166,6 +166,7 @@ bindsym XF86MonBrightnessUp exec /opt/extras.ubuntu.com/indicator-brightness/ind
 bindsym XF86MonBrightnessDown exec /opt/extras.ubuntu.com/indicator-brightness/indicator-brightness-adjust --down
 
 
+
 # custom bindings
 #
 bindsym $mod+Mod1+f exec "firefox"
@@ -196,6 +197,9 @@ exec_always xinput --set-prop 13 "Synaptics Two-Finger Scrolling" 1 1
 
 # disable caps lock key
 exec_always setxkbmap -option ctrl:nocaps
+
+# removable media automount
+exec /usr/bin/udiskie
 
 # applets
 exec pnmixer

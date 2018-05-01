@@ -78,8 +78,17 @@ zstyle ':completion:*:kill:*' force-list always
 zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=29=34"
 zstyle ':completion:*:*:killall:*' menu yes select
 zstyle ':completion:*:killall:*' force-list always
-users=(jvoisin root)           # because I don't care about others
+users=(mg)           # because I don't care about others
 zstyle ':completion:*' users $users
+
+# modify argument under cursor
+dirname-previous-word () {
+autoload -U modify-current-argument
+    modify-current-argument '${ARG:h}'
+}
+
+zle -N dirname-previous-word
+bindkey '^[q' dirname-previous-word
 
 #generic completion with --help
 compdef _gnu_generic gcc
