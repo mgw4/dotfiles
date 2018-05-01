@@ -130,7 +130,7 @@ set splitbelow
 "
 " ctrl-p settings
 "
-let g:ctrlp_working_path_mode='rwa'
+let g:ctrlp_working_path_mode='0'
 if executable('ag')
   " Use Ag over Grep
   set grepprg=ag\ --nogroup\ --nocolor
@@ -151,6 +151,13 @@ map <leader>d :YcmCompleter GetDoc<CR>
 " NERDTree
 "
 map <C-n> :NERDTreeToggle<CR>
+
+"
+" Gundo
+"
+map <F5> :GundoToggle<CR>
+let g:gundo_prefer_python3=1
+let g:gundo_auto_preview=1 "show diff
 
 "
 " Clear search highligt
