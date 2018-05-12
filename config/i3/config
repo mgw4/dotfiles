@@ -177,6 +177,7 @@ bindsym $mod+Mod1+l exec "i3lock"
 bindsym $mod+Mod1+k exec "keepass2"
 bindsym $mod+Mod1+t exec "thunar"
 bindsym $mod+Mod1+c exec "chromium-browser"
+bindsym $mod+Mod1+p exec "pcmanfm"
 
 # jump workspaces
 # 
@@ -194,6 +195,8 @@ exec_always guake
 # mouse settings
 exec --no-startup-id synclient TapButton1=0 TapButton2=0 TapButton3=0
 exec_always xinput --set-prop 13 "Synaptics Two-Finger Scrolling" 1 1
+ # disable mouse when typing
+exec syndaemon -i .3 -d -t -K
 
 # disable caps lock key
 exec_always setxkbmap -option ctrl:nocaps

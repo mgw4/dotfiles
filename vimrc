@@ -165,6 +165,11 @@ let g:gundo_auto_preview=1 "show diff
 map <leader>, :nohlsearch<CR>
 
 "
+" split line on comma
+"
+map <leader>j ^f,la<CR><ESC>
+
+"
 " set 256 color
 "
 set t_Co=256

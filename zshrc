@@ -58,6 +58,7 @@ setopt correct                  # spelling correction for commands
 setopt list_ambiguous           # complete as much of a completion until it gets ambiguous.
 
 zstyle ':completion::complete:*' use-cache on               # completion caching, use rehash to clear
+zstyle ':completion:*' rehash true                          # not have to type a rehash every time 
 zstyle ':completion:*' cache-path ~/.zsh/cache              # cache path
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'   # ignore case
 zstyle ':completion:*' menu select=2                        # menu if nb items > 2
@@ -128,7 +129,7 @@ setopt chase_links              # resolve symlinks
 setopt correct                  # try to correct spelling of commands
 setopt extended_glob            # activate complex pattern globbing
 setopt glob_dots                # include dotfiles in globbing
-setopt print_exit_value         # print return value if non-zero
+# setopt print_exit_value         # print return value if non-zero
 unsetopt beep                   # no bell on error
 unsetopt bg_nice                # no lower prio for background jobs
 setopt clobber                  # must use >| to truncate existing files
