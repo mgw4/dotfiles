@@ -44,6 +44,11 @@ bindkey '\eOA'    history-beginning-search-backward   # Up
 bindkey '\eOB'    history-beginning-search-forward    # Down
 bindkey '^R'      history-incremental-pattern-search-backward 
 
+# wrap current command with sudo
+insert_sudo() { BUFFER="sudo $BUFFER"; zle end-of-line;  }
+zle -N insert_sudo insert_sudo
+bindkey '^O' insert_sudo
+
 ##
 # Completion
 ##
@@ -149,3 +154,6 @@ export EDITOR=vim				# Meh.
 
 source ~/.custom                # costom settings     
 source ~/.alias                 # aliases
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
