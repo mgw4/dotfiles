@@ -1,6 +1,6 @@
 set nocompatible              " required 
 filetype off                  " required
-
+		
 set encoding=utf-8
 
 try | source $VIMRUNTIME/defaults.vim | catch | silent echo 'no defaults' | endtry
@@ -21,6 +21,11 @@ set directory=$HOME/.vim_backup//
 
 set undofile
 set undodir=$HOME/.vim_undo//
+
+"
+" set listchars=tab:>~,nbsp:_,trail:.,extends:>,precedes
+"
+set scrolloff=10
 
 " 
 " set the leader key to ','
@@ -122,6 +127,9 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+
+nmap <silent> <C-m> <Plug>(pydocstring)
+
 " 
 " Jedi setting to set the doc string window at the bottom
 "
@@ -163,6 +171,19 @@ let g:gundo_auto_preview=1 "show diff
 " Clear search highligt
 "
 map <leader>, :nohlsearch<CR>
+
+" 
+" Syntastic
+"
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 
 "
 " split line on comma
