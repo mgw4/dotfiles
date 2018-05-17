@@ -193,10 +193,8 @@ exec_always guake
 
 
 # mouse settings
-exec --no-startup-id synclient TapButton1=0 TapButton2=0 TapButton3=0
+exec --no-startup-id synclient TapButton1=0 TapButton2=0 TapButton3=0 PalmDetect=1
 exec_always xinput --set-prop 13 "Synaptics Two-Finger Scrolling" 1 1
- # disable mouse when typing
-exec syndaemon -i .3 -d -t -K
 
 # disable caps lock key
 exec_always setxkbmap -option ctrl:nocaps
