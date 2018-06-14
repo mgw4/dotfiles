@@ -2,7 +2,7 @@ alias ls="ls --color"
 alias ll="ls -l"
 alias grep="grep --color"
 alias d="dirs -v"
-alias v="jobs | grep -q vim  || (vim ; true) && %\( vim; true \ )"
+alias v="jobs | grep -q vim  || (vim ; true) && %\( vim; true \)"
 
 function h (){
     history | grep -E "$1"

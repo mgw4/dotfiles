@@ -51,10 +51,10 @@ augroup END
 "
 " flake8 settings
 "
-let g:flake8_show_in_file=1 
-let g:flake8_show_in_gutter=1
-" run flake8 on write
-autocmd BufWritePost *.py call Flake8()
+" let g:flake8_show_in_file=1 
+" let g:flake8_show_in_gutter=1
+" " run flake8 on write
+" autocmd BufWritePost *.py call Flake8()
 
 
 " 
@@ -175,14 +175,14 @@ map <leader>, :nohlsearch<CR>
 " 
 " Syntastic
 "
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" 
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 0
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 
 "
@@ -200,3 +200,6 @@ set t_Co=256
 "
 colorscheme xoria256 " ron
 
+" load plugins and generate help tags
+packloadall
+silent! helptags ALL

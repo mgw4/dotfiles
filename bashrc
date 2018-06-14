@@ -126,3 +126,5 @@ PATH=$PATH:$HOME/bin
 export PATH
 
 export PIP_DOWNLOAD_CACHE=$HOME/pip
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
