@@ -43,10 +43,10 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -55,10 +55,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -67,7 +67,9 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+# disabled to have proper vim key
+# movement
+# bindsym $mod+h split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -175,9 +177,16 @@ bindsym $mod+Mod1+g exec "gnucash"
 bindsym $mod+Mod1+w exec "google-chrome"
 bindsym $mod+Mod1+l exec "i3lock"
 bindsym $mod+Mod1+k exec "keepass2"
-bindsym $mod+Mod1+t exec "thunar"
+bindsym $mod+Mod1+t exec "thunderbird"
 bindsym $mod+Mod1+c exec "chromium-browser"
+bindsym $mod+Mod1+i exec "chromium-browser --incognito"
+bindsym $mod+Mod1+q exec "qalculate"
 bindsym $mod+Mod1+p exec "pcmanfm"
+bindsym $mod+Mod1+m exec "code"
+bindsym $mod+Mod1+v exec "vlc"
+bindsym $mod+Mod1+e exec "vim -g"
+bindsym $mod+Mod1+a exec "pavucontrol"
+bindsym $mod+Mod1+r exec "pactl suspend-sink 1 && pactl suspend-sink 0"
 
 # jump workspaces
 # 
@@ -202,7 +211,12 @@ exec_always setxkbmap -option ctrl:nocaps
 # removable media automount
 exec /usr/bin/udiskie
 
+# set background image
+exec feh --bg-scale /home/mg/Documents/IMG_6470_mod.jpg
+
 # applets
 exec pnmixer
 exec_always nm-applet
 exec /opt/extras.ubuntu.com/indicator-brightness/indicator-brightness
+exec /usr/bin/redshift-g
+exec /usr/bin/blueman-applet

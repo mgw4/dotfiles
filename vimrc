@@ -115,7 +115,7 @@ inoremap <Right> <NOP>
 " set nice line at 121 
 " set highlight chars over 80
 "
-let &colorcolumn="121"
+let &colorcolumn="80"
 highlight ColorColumn ctermbg=17 guibg=lightgrey
 highlight OverLength ctermbg=17 ctermfg=white guibg=lightgrey
 match OverLength /\%81v.\+/

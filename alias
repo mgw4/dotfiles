@@ -4,6 +4,23 @@ alias grep="grep --color"
 alias d="dirs -v"
 alias v="jobs | grep -q vim  || (vim ; true) && %\( vim; true \)"
 
-function h (){
-    history | grep -E "$1"
+# fuzzy grep open via ag with line number
+vg() {
+  local file
+  local line
+
+  read -r file line <<<"$(ag --nobreak --noheading $@ | fzf -0 -1 | awk -F: '{print $1, $2}')"
+
+  if [[ -n $file ]]
+  then
+     vim $file +$line
+  fi
+}
+
+# fd - cd to selected directory
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
 }

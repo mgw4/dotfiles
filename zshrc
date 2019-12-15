@@ -52,6 +52,7 @@ bindkey '^O' insert_sudo
 ##
 # Completion
 ##
+fpath+=~/.zfunc # completion path for poetry
 autoload -U compinit
 compinit
 zmodload -i zsh/complist        
@@ -157,3 +158,4 @@ source ~/.alias                 # aliases
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+

@@ -21,7 +21,7 @@ order += "wireless _first_"
 order += "ethernet _first_"
 order += "battery 0"
 order += "load"
-order += "tztime local"
+order += "tztime ott"
 
 wireless _first_ {
         format_up = "W: (%quality at %essid) %ip"
@@ -43,8 +43,9 @@ path_exists VPN{
         path = "/proc/sys/net/ipv4/conf/tun0"
 }
 
-tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
+tztime ott {
+        format = "Ott %Y-%m-%d %H:%M:%S"
+        timezone = "America/Toronto"
 }
 
 load {

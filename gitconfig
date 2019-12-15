@@ -1,9 +1,13 @@
 [user]
-	email = Michel Gauthier
+	email = mg@place.local
+	name = michel
 [push]
 	default = simple
+[merge]
+	tool = p4merge
 [alias]
     ec = config --global -e
+    
     co = checkout
     up = !git pull --rebase --prune $@ && git submodule update --init --recursive
     cob = checkout -b
@@ -16,6 +20,7 @@
     cleanb = "!f() { git checkout ${1-master} && git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs git branch -b;  }; f"   
     st = status
     ci = commit
+    cia = commit -a
     r = reset
     r1 = reset HEAD^
     s = stash list
@@ -26,3 +31,9 @@
     lt = log --graph --oneline 
     lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
 
+    d = diff
+
+[difftool]
+	prompt = false
+[diff]
+	tool = p4merge
