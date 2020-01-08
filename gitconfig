@@ -17,7 +17,8 @@
     undo = reset HEAD~1 --mixed
     ammend = commit -a --amend
     wipe = !git add -A && git commit -qm "WIPE SAVEPOINT" && git reset HEAD~1 --hard
-    cleanb = "!f() { git checkout ${1-master} && git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs git branch -b;  }; f"   
+    cleanb = "!f() { git checkout ${1-master} && git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs git branch -d;  }; f"   
+    merclean = "!f() { git merge ${1} && git branch -d ${1}; }; f"
     st = status
     ci = commit
     cia = commit -a
