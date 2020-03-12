@@ -1,7 +1,0 @@
-#!/bin/bash
-
-cd `readlink -e \`dirname ${BASH_SOURCE[0]}\``
-git clone https://github.com/tmux-plugins/tpm
-git clone https://git::@github.com/tmux-plugins/tmux-yank
-git clone https://git::@github.com/tmux-plugins/tmux-copycat
-git clone https://git::@github.com/tmux-plugins/tmux-sensible

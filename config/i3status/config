@@ -11,7 +11,6 @@ general {
         interval = 5
 }
 
-# order += "ipv6"
 order += "disk /"
 order += "disk /home"
 order += "disk /usr"
@@ -22,6 +21,7 @@ order += "ethernet _first_"
 order += "battery 0"
 order += "load"
 order += "tztime ott"
+order += "read_file BRI"
 
 wireless _first_ {
         format_up = "W: (%quality at %essid) %ip"
@@ -66,4 +66,10 @@ disk "/var" {
 
 disk "/usr" {
         format = "/usr %avail"
+}
+
+read_file BRI{
+    format = "SCRN %content"
+    path = "/sys/class/backlight/acpi_video0/actual_brightness"
+    Max_characters = 3
 }
