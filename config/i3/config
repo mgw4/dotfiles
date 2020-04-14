@@ -187,6 +187,7 @@ bindsym $mod+Mod1+s exec "smplayer"
 bindsym $mod+Mod1+t exec "thunderbird"
 bindsym $mod+Mod1+v exec "vlc"
 bindsym $mod+Mod1+w exec "google-chrome"
+bindsym --release $mod+Shift+p exec "scrot -s '/home/michel/Pictures/screenshots/$(date +%Y-%m-%d_%H:%M:%S).png'"
 
 # Keyboard layouts
 #
