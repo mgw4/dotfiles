@@ -189,6 +189,12 @@ bindsym $mod+Mod1+v exec "vlc"
 bindsym $mod+Mod1+w exec "google-chrome"
 bindsym --release $mod+Shift+p exec "scrot -s '/home/michel/Pictures/screenshots/$(date +%Y-%m-%d_%H:%M:%S).png'"
 
+
+# move worspace to other monitor
+bindsym $mod+shift+p move workspace to output right
+bindsym $mod+shift+t exec "TV_on"
+bindsym $mod+shift+o exec "TV_off"
+
 # Keyboard layouts
 #
 bindsym $mod+Shift+f exec "setxkbmap -layout ca,fr"
