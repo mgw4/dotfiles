@@ -106,6 +106,9 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace email
 
+bindcode $mod+117 workspace prev_on_output
+bindcode $mod+112 workspace next_on_output
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
@@ -117,6 +120,9 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace email
+
+bindcode $mod+Shift+117 move container to workspace prev_on_output
+bindsym $mod+Shift+112 move container to workspace next_on_output
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -171,7 +177,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute $(pacmd list-sink
 
 # custom bindings
 #
-bindsym $mod+Mod1+a exec "pavucontrol"
+bindsym $mod+Mod1+a exec "gnome-control-center"
 bindsym $mod+Mod1+c exec "chromium-browser"
 bindsym $mod+Mod1+e exec "vim -g"
 bindsym $mod+Mod1+f exec "firefox"
@@ -183,7 +189,7 @@ bindsym $mod+Mod1+m exec "bright -movie"
 bindsym $mod+Mod1+n exec "nautilus"
 bindsym $mod+Mod1+q exec "qalculate"
 bindsym $mod+Mod1+r exec "pactl suspend-sink 1 && pactl suspend-sink 0"
-bindsym $mod+Mod1+s exec "smplayer"
+bindsym $mod+Mod1+s exec "flameshot gui"
 bindsym $mod+Mod1+t exec "thunderbird"
 bindsym $mod+Mod1+v exec "vlc"
 bindsym $mod+Mod1+w exec "google-chrome"
@@ -191,19 +197,22 @@ bindsym --release $mod+Shift+p exec "scrot -s '/home/michel/Pictures/screenshots
 
 
 # move worspace to other monitor
-bindsym $mod+shift+p move workspace to output right
-bindsym $mod+shift+t exec "TV_on"
+bindsym $mod+shift+p move workspace to output left
 bindsym $mod+shift+o exec "TV_off"
+bindsym $mod+shift+t exec "TV_on"
+bindsym $mod+shift+m exec "MON_on"
+
 
 # Keyboard layouts
 #
-bindsym $mod+Shift+f exec "setxkbmap -layout ca,fr"
+bindsy m $mod+Shift+f exec "setxkbmap -layout ca,fr"
 bindsym $mod+Shift+u exec "setxkbmap -layout us"
 
 # jump workspaces
-# 
-bindsym Mod1+Control+Left workspace prev
-bindsym Mod1+Control+Right workspace next
+# This afects the pycharm navigation
+#
+# bindsym Mod1+Control+Left workspace prev
+# bindsym Mod1+Control+Right workspace next
 
 
 # misc applications 
@@ -218,8 +227,7 @@ exec i3-msg "workspace 1; exec firefox"
 
 # mouse settings
 exec --no-startup-id synclient TapButton1=0 TapButton2=0 TapButton3=0 PalmDetect=1
-exec_always xinput --set-prop 13 "Synaptics Two-Finger Scrolling" 1 1
-
+exec --no-startup-id synclient HorizTwoFingerScroll=1
 # disable caps lock key
 exec_always setxkbmap -option ctrl:nocaps
 
